@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const voiceBtn = document.getElementById('voiceBtn');
     const resultDiv = document.getElementById('result');
 
+// Botón para el reconocimiento
+
     voiceBtn.addEventListener('click', function () {
         recognizeSpeech();
     });
