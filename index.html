@@ -6,6 +6,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Identificador de Órdenes por Voz con JS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Librería que facilita solicitudes HTTP */ -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <style>
         /* Estilos adicionales */
         .instructions-box {
@@ -47,7 +51,7 @@
           <li>Para abrir una nueva pestaña en el navegador, di <span class="fw-bold">"Quiero abrir una nueva pestaña"</span>.</li>
           <li>Para ir a la página de inicio de canva.com, di <span class="fw-bold">"Abre canva.com"</span>.</li>
           <li>Para abrir una nueva ventana con un tamaño de 800 * 600, di <span class="fw-bold">"Cambia el tamaño de la ventana"</span>.</li>
-          <li>Para cerrar todas las pestañas del navegador, di <span class="fw-bold">"Quiero cerrar el navegador"</span>.</li>
+          <li>Para cerrar una pestaña del navegador, di <span class="fw-bold">"Quiero cerrar la pestaña actual"</span>.</li>
           <li>Para aumentar el zoom a 150%, di <span class="fw-bold">"Quiero aumentar zoom"</span>.</li>
           <li>Para reestablecer el zoom a 100%, di <span class="fw-bold">"Quiero reducir zoom"</span>.</li>
         </ul>
