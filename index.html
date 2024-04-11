@@ -13,14 +13,17 @@
     <style>
         /* Estilos adicionales */
         .instructions-box {
-          position: fixed;
+          /*position: fixed;
           top: 16px;
-          right: 16px;
+          right: 16px; */
           background-color: #f8f9fa;
           border: 1px solid #dee2e6;
           border-radius: 10px;
-          padding: 15px;
-          max-width: 400px;
+          padding: 20px;
+          max-width: auto;
+          margin: 30px auto; /* Centrar el bloque */
+          margin-left: 20px;
+          margin-right: 20px;
         }
       </style>
 </head>
@@ -31,9 +34,9 @@
 
     <div class="container mt-4">
         <h2>Identificación por Voz</h2>
-        <p>Para activar el reconocimiento de voz, haz clic en el botón "Identificar por Voz".<br> Habla claramente para dar los comandos.</p>
+        <p>La aplicación está siempre escuchando. Habla claramente para dar los comandos.</p>
 
-        <button class="btn btn-primary" id="voiceBtn">Identificar por Voz</button>
+        <!-- <button class="btn btn-primary" id="voiceBtn">Identificar por Voz</button> -->
 
         <div id="result"></div>
     </div>
