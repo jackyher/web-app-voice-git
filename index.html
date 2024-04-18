@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Identificador de Órdenes por Voz con JS</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-    <!-- Librería que facilita solicitudes HTTP */ -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <title>Identificador de Órdenes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 
     <style>
         /* Estilos adicionales */
         .instructions-box {
-          /*position: fixed;
-          top: 16px;
-          right: 16px; */
-          background-color: #f8f9fa;
-          border: 1px solid #dee2e6;
-          border-radius: 10px;
-          padding: 20px;
-          max-width: auto;
-          margin: 30px auto; /* Centrar el bloque */
-          margin-left: 20px;
-          margin-right: 20px;
+            /*position: fixed;
+                top: 16px;
+                right: 16px; */
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: auto;
+            margin: 30px auto;
+            /* Centrar el bloque */
+            margin-left: 20px;
+            margin-right: 20px;
         }
-      </style>
+
+        body {
+            font-family: "Poppins", sans-serif;
+            /* Aplicar Poppins a todo el cuerpo */
+        }
+
+        .navbar-custom {
+            background-color: #c9dfff;
+            /* Aplicar el color azul cielo */
+        }
+    </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Identificador de Órdenes</a>
+    <nav class="navbar navbar-light navbar-custom">
+        <a class="navbar-brand">
+            <img src="/app-ihc-remote/sonido-de-onda.png" alt="" width="30" height="24"
+                class="d-inline-block align-text-top" />
+            Identificador de órdenes IHC
+        </a>
     </nav>
 
     <div class="container mt-4">
-        <h2>Identificación por Voz</h2>
-        <p>La aplicación está siempre escuchando. Habla claramente para dar los comandos.</p>
+        <p class="fs-3 fw-bold">Bienvenido a tu asistente "Yaquis"</p>
+        <p>
+            Para empezar a dar las órdenes di "Yaquis" seguido de la instrucción
+            que deseas ejecutar.
+        </p>
 
         <!-- <button class="btn btn-primary" id="voiceBtn">Identificar por Voz</button> -->
 
@@ -47,19 +67,42 @@
 
     <div class="instructions-box">
         <h4>Documentación</h4>
-        <p>Este entorno de Interacción Humano-Computadora (IHC) permite identificar órdenes por medio de la voz utilizando el Web browser.</p>
+        <p>
+            Este entorno de Interacción Humano-Computadora (IHC) permite identificar
+            órdenes por medio de la voz utilizando el Web browser.
+        </p>
         <p><strong>Instrucciones:</strong></p>
         <ul>
-          <li>Para cambiar el tamaño del texto "Control de texto", di <span class="fw-bold">"Cambia a tamaño 3"</span>.</li>
-          <li>Para abrir una nueva pestaña en el navegador, di <span class="fw-bold">"Quiero abrir una nueva pestaña"</span>.</li>
-          <li>Para ir a la página de inicio de canva.com, di <span class="fw-bold">"Abre canva.com"</span>.</li>
-          <li>Para abrir una nueva ventana con un tamaño de 800 * 600, di <span class="fw-bold">"Cambia el tamaño de la ventana"</span>.</li>
-          <li>Para cerrar una pestaña del navegador, di <span class="fw-bold">"Quiero cerrar la pestaña actual"</span>.</li>
-          <li>Para aumentar el zoom a 150%, di <span class="fw-bold">"Quiero aumentar zoom"</span>.</li>
-          <li>Para reestablecer el zoom a 100%, di <span class="fw-bold">"Quiero reducir zoom"</span>.</li>
+            <li>
+                Para cambiar el tamaño del texto "Control de texto", di
+                <span class="fw-bold">"Cambia a tamaño 3"</span>.
+            </li>
+            <li>
+                Para abrir una nueva pestaña en el navegador, di
+                <span class="fw-bold">"Quiero abrir una nueva pestaña"</span>.
+            </li>
+            <li>
+                Para ir a la página de inicio de canva.com, di
+                <span class="fw-bold">"Abre canva.com"</span>.
+            </li>
+            <li>
+                Para abrir una nueva ventana con un tamaño de 800 * 600, di
+                <span class="fw-bold">"Cambia el tamaño de la ventana"</span>.
+            </li>
+            <li>
+                Para cerrar una pestaña del navegador, di
+                <span class="fw-bold">"Quiero cerrar la pestaña actual"</span>.
+            </li>
+            <li>
+                Para aumentar el zoom a 150%, di
+                <span class="fw-bold">"Quiero aumentar zoom"</span>.
+            </li>
+            <li>
+                Para reestablecer el zoom a 100%, di
+                <span class="fw-bold">"Quiero reducir zoom"</span>.
+            </li>
         </ul>
-      </div>
-
+    </div>
 
     <footer class="footer mt-5">
         <div class="container text-center">
@@ -67,10 +110,15 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Librería que facilita solicitudes HTTP */ -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
