@@ -14,13 +14,16 @@
       .navbar-custom {
         background-color: #c9dfff; /* Aplicar el color azul cielo */
       }
+      .small-text {
+        font-size: 1rem; /* O el tamaño de fuente que desees */
+      }
     </style>
   </head>
   <body>
     <header>
       <nav class="navbar navbar-light navbar-custom">
         <div class="container-fluid">
-          <a class="navbar-brand">
+          <a class="navbar-brand small-text">
             <img src="sonido-de-onda.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
             Ejecución de órdenes IHC
           </a>
@@ -29,7 +32,7 @@
     </header>
     
     <main class="container mt-5">
-      <p class="fs-3 fw-bold">Órden para ejecutar:</p>
+      <p class="fs-4 fw-bold">Última órden ejecutada:</p>
     </main>
 
     <div class="input-group mb-3 container mt-4">
@@ -37,9 +40,9 @@
       <input type="text" id="orden" class="form-control py-3" placeholder="Orden" aria-describedby="addon-wrapping" title="Ingrese su instrucción aquí" disabled>
     </div>
     
-    <footer class="footer mt-5">
+    <footer class="footer fixed-bottom">
       <div class="container text-center">
-        <p>&copy; 2024 Todos los derechos reservados. Jacqueline Hernández.</p>
+        <p style="font-size: 0.85rem;">&copy; 2024 Todos los derechos reservados. Jacqueline Hernández.</p>
       </div>
     </footer>
 
