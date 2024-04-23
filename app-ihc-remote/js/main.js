@@ -1,12 +1,64 @@
-function leerDatosMockapi() {
-    //Función para obtener y mostrar los datos
-    function obtenerDatos() {
-        axios.get('https://660f6f5a356b87a55c51616a.mockapi.io/orden')
+function executeActions(ultimaOrden) {
+    const abrirPestaña = 'abrir';
+    const irPagina = 'canva.com';
+    const tamañoVentana = 'tamaño de la ventana';
+    const cerrarPestaña = 'cerrar';
+    const aumentarZoom = 'aumentar';
+    const reducirZoom = 'reducir';
+
+    let mostrarOrden = ultimaOrden; // Guardar la última orden para mostrarla en el recuadro
+
+    const fecha = new Date();
+    const formatFecha = fecha.toLocaleString(); // Para convertir la fecha a la zona horaria del usuario
+
+    // Resto del código para ejecutar las acciones basadas en la última orden obtenida...
+    if (ultimaOrden.includes(abrirPestaña)) {
+        window.open("https://www.google.com/", "_blank");
+        console.log("Nueva pestaña del navegador abierta");
+    }
+
+    // Para visitar la página de Canva
+    if (ultimaOrden.includes(irPagina)) {
+        window.open("https://www.canva.com", "_blank");
+        console.log("Se ha visitado Canva");
+    }
+
+    // Para modificar el tamaño de la ventana del navegador
+    if (ultimaOrden.includes(tamañoVentana)) {
+        window.open("https://jackyher.github.io/web-app-voice-git/", "_blank", "width=800,height=600");
+        console.log("El tamaño de la ventana del navegador ha cambiado a 800x600");
+    }
+
+    // Para cerrar la pestaña del navegador actual
+    if (ultimaOrden.includes(cerrarPestaña)) {
+        window.close();
+        console.log("Todas las pestañas del navegador se han cerrado");
+    }
+
+    // Para aumentar el zoom de la ventana
+    if (ultimaOrden.includes(aumentarZoom)) {
+        document.body.style.zoom = "150%";
+        console.log("Zoom aumentado al 150%");
+    }
+
+    // Para restablecer el zoom de la ventana
+    if (ultimaOrden.includes(reducirZoom)) {
+        document.body.style.zoom = "100%";
+        console.log("Zoom restablecido al 100%");
+    }
+
+    // Mostrar la última orden en el recuadro
+    document.getElementById('orden').innerText = mostrarOrden;
+    console.log("Ejecutando acciones para:", ultimaOrden);
+}
+
+function obtenerUltimaOrden() {
+    axios.get('https://660f6f5a356b87a55c51616a.mockapi.io/orden')
         .then(function(response) {
-            if (response.data.length > 0) { //Verificar si hay registros
-                var ultimoRegistro = response.data[response.data.length -1].orden; //Obtener el contenido del último registro
-                console.log(ultimoRegistro); //Mostrar el contenido en la consola
-                document.getElementById('orden').value = ultimoRegistro; //Mostrar el contenido en el elemento con id "orden"
+            if (response.data.length > 0) { // Verificar si hay registros
+                const ultimaOrden = response.data[response.data.length - 1].orden; // Obtener el contenido de la última orden
+                console.log("Última orden:", ultimaOrden); // Mostrar el contenido en la consola
+                executeActions(ultimaOrden); // Ejecutar la última orden obtenida
             } else {
                 console.log("No hay registros disponibles");
             }
@@ -14,14 +66,7 @@ function leerDatosMockapi() {
         .catch(function(error) {
             console.log(error);
         });
-    }
-
-    //Llamar a la función obtenerDatos inicialmente
-    obtenerDatos();
-
-    //Ejecutar la función obtenerDAtos cada 2 segundos
-    setInterval(obtenerDatos, 2000);
 }
 
-//Llamar a la función para empezar a leer los datos
-leerDatosMockapi();
+// Llamar a la función para obtener la última orden
+obtenerUltimaOrden();
