@@ -1,3 +1,5 @@
+let ultimaFechaHora = null;
+
 function executeActions(ultimaOrden) {
     const abrirPestaña = 'abrir';
     const irPagina = 'canva.com';
@@ -57,8 +59,17 @@ function obtenerUltimaOrden() {
         .then(function(response) {
             if (response.data.length > 0) { // Verificar si hay registros
                 const ultimaOrden = response.data[response.data.length - 1].orden; // Obtener el contenido de la última orden
+                const ultimaFechaHoraOrden = response.data[response.data.length - 1].fecha; // Obtener la fecha y hora de la última orden
                 console.log("Última orden:", ultimaOrden); // Mostrar el contenido en la consola
-                executeActions(ultimaOrden); // Ejecutar la última orden obtenida
+                console.log("Fecha y hora de la última orden:", ultimaFechaHoraOrden); // Mostrar la fecha y hora en la consola
+
+                // Verificar si la última fecha y hora son diferentes a la última fecha y hora consultadas
+                if (ultimaFechaHora !== ultimaFechaHoraOrden) {
+                    executeActions(ultimaOrden); // Ejecutar la última orden obtenida
+                    ultimaFechaHora = ultimaFechaHoraOrden; // Actualizar la última fecha y hora consultadas
+                } else {
+                    console.log("La última orden es la misma que la anterior. No se ejecutan acciones.");
+                }
             } else {
                 console.log("No hay registros disponibles");
             }
@@ -68,5 +79,5 @@ function obtenerUltimaOrden() {
         });
 }
 
-// Llamar a la función para obtener la última orden
-obtenerUltimaOrden();
+// Llamar a la función para obtener la última orden cada 2 segundos
+setInterval(obtenerUltimaOrden, 2000);
